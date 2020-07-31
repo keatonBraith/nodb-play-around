@@ -1,13 +1,13 @@
-const express = require('express')
-const app = express()
-const ctrl = require("./controller")
-const port = 4006
+const express = require("express");
+const app = express();
+const ctrl = require("./controller");
+const port = 4006;
 
-app.use(express.json())
+app.use(express.json());
 
-app.get("/api/memories", ctrl.getMemories )
-app.post("/api/memories", ctrl.addMemories )
-app.put("/api/memories/edit/:id", ctrl.editMemories )
-app.delete("/api/memories/:id", ctrl.deleteMemories )
+app.get("/api/memories", ctrl.getMemories);
+app.post("/api/memories", ctrl.addMemories);
+app.put("/api/memories/edit/:id", ctrl.editMemories);
+app.delete("/api/memories/:id", ctrl.deleteMemories);
 
-app.listen(port, () => console.log(`We've landed on the moon at port ${port}`))
+app.listen(port, () => console.log(`We've landed on the moon at port ${port}`));

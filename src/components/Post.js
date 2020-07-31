@@ -20,8 +20,9 @@ class Post extends Component {
     this.setState({ edit: !this.state.edit });
   };
 
-  saveDescription = () => {
-      console.log(this.props)
+  saveDescription = (e) => {
+    e.preventDefault();
+    console.log(this.props);
     this.props.editMemory(this.props.info.id, this.state.description);
     this.toggleEdit();
   };
@@ -30,29 +31,47 @@ class Post extends Component {
     return (
       <div className="post">
         <div className="post-btns">
-            <button className="edit-button" onClick={this.toggleEdit}>Edit</button>
-          <button className="delete-button">Delete</button>
+          <button className="edit-button" onClick={this.toggleEdit}>
+            Edit
+          </button>
+          <button
+            className="delete-button"
+            onClick={() => this.props.deleteMemory(this.props.info.id)}
+          >
+            Delete
+          </button>
         </div>
         <main className="post-main">
-          <img className="post-image" src={this.props.info.url} alt="Memory" />
+          <div className="image-containers">
+            <img
+              className="post-image"
+              src={this.props.info.url}
+              alt="Memory"
+            />
+          </div>
           <div className="post-side">
             {this.state.edit ? (
               <div>
-                <input
+                <textarea
+                  className="edit-input"
+                  type="text"
                   value={this.state.description}
                   onChange={(e) => {
                     this.handleChange(e.target.value);
                   }}
-                />
-                <button onClick={this.saveDescription}>Save</button>
-                <button onClick={this.toggleEdit}>Cancel</button>
+                ></textarea>
+                <button className="save-button" onClick={this.saveDescription}>
+                  Save
+                </button>
+                <button className="cancel-button" onClick={this.toggleEdit}>
+                  Cancel
+                </button>
               </div>
             ) : (
               <div>
                 <p className="post-description">
                   {this.props.info.description}
                 </p>
-                
               </div>
             )}
             <p className="post-date">{this.props.info.date}</p>
