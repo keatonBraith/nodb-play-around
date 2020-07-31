@@ -11,9 +11,9 @@ class List extends Component {
     render(){
         return(
             <div className="input-main">
-                <input/>
-                <input/>
-                <input/>
+                <input className="inputs"/>
+                <input className="inputs"/>
+                <input className="inputs"/>
                 <button className="input-btn">ADD</button>
             </div>
         )
