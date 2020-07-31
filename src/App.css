@@ -102,10 +102,10 @@ button {
   font-family: 'Quicksand', sans-serif;
   height: 60%;
   width: 80%;
-  background-color: rgb(36, 36, 36);
   margin: 20px;
 }
 
 .post-date {
   font-family: 'Quicksand', sans-serif;
+  margin: 20px;
 }
